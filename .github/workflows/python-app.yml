@@ -28,5 +28,5 @@ jobs:
     - name: Test with unittest
       run: |
         pip install pytest
-        set PYTHONPATH=$(pwd):$PYTHONPATH
+        set PYTHONPATH='.\src'
         pytest
