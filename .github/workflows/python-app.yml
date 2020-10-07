@@ -30,8 +30,7 @@ jobs:
       run: pip install lizard
 
     - name: Limit complexity
-      run:  flake8 . --count --exit-zero --max-complexity=3 --max-line-length=127 --statistics
-
+      run:  $HOME/.local/bin/lizard --CCN 3
     - name: Test with unittest
       run: |
         python -m unittest
