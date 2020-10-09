@@ -30,7 +30,7 @@ jobs:
     - name: Test with unittest
       run: |
         pip install pytest
-        set PYTHONPATH = $PYTHONPATH:./src/<alert-to-care-s22b12>
+        set PYTHONPATH = ${PYTHONPATH}:/src/<alert-to-care-s22b12>
         pytest 
     
 #     - name: Generate coverage report
