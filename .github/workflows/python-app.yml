@@ -30,12 +30,13 @@ jobs:
     - name: Test with unittest
       run: |
         pip install pytest
-        pytest
+        sys.path.append("alert-to-care-s22b12/src/")
+        pytest 
     
-    - name: Generate coverage report
-      run: |
-        pip install pytest
-        pip install pytest-cov
-        pytest --cov=./ --cov-report=xml
+#     - name: Generate coverage report
+#       run: |
+#         pip install pytest
+#         pip install pytest-cov
+#         pytest --cov=./ --cov-report=xml
     
 
