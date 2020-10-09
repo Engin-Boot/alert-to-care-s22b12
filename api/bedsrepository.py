@@ -2,12 +2,23 @@ from beds import Beds
 
 class BedsRepositry:
     BedsList=[];
-    for i in range(1,13):
-        bed =Beds(True,str(i));
-        BedsList.append(bed);
+
+    message="";
+
+
+
+    def addBeds(numberofbeds):
+        if int(numberofbeds)<100:
+            message=numberofbeds +" "+"beds are added";
+            for i in range(1,int(numberofbeds)):
+                bed =Beds(True,str(i));
+                BedsRepositry.BedsList.append(bed);
+        else:
+            message="Total Capacity is less as compared to need of beds";
+
+        return message;
 
     def checkVacantBed():
-
         for beds in BedsRepositry.BedsList:
             if beds.vacant==True:
                 beds.vacant=False;
@@ -16,5 +27,5 @@ class BedsRepositry:
 
     def emptyBed(id):
         for beds in BedsRepositry.BedsList:
-            if beds.id==id:
-                beds.vacant=False;
+            if beds.id==id and beds.vacant==False:
+                beds.vacant=True;
