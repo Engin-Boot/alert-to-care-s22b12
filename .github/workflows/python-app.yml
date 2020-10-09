@@ -30,7 +30,7 @@ jobs:
     - name: Test with unittest
       run: |
         pip install pytest
-        sys.path.append("alert-to-care-s22b12/src/")
+        echo "::set -env name = PYTHONPATH::alert-to-care-s22b12/src/<alert-to-care-s22b12>"
         pytest 
     
 #     - name: Generate coverage report
