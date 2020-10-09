@@ -32,7 +32,8 @@ jobs:
 #         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with unittest
       run: |
-        python test_app.py
+        python alert-to-care-s22b12/src/test_app.py 
+
      
 #     - name: Generate coverage report
 #       run: |
