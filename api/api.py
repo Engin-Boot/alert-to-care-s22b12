@@ -2,7 +2,7 @@ import flask
 
 from patients import Patient
 from patientrepository import patientrepositry
-from flask import request
+from flask import request,jsonify
 
 app = flask.Flask(__name__)
 
@@ -21,21 +21,19 @@ def patiententry():
     bp=request.json['bp']
     heartbeat=request.json['heartbeat']
     patientdetails=Patient(name,age,bedid,spo2,bp,heartbeat);
-    patientrepositry.addPatient(patientdetails);
-
-    return "Patient is added"
+    response = patientrepositry.addPatient(patientdetails);
+    return jsonify({"result": response})
 
 @app.route('/checkallpatientvitals',methods=['GET'])
 def checkvitals():
-    patientrepositry.patientCheckVitals()
-
-    return "Nothing for now"
+    response = patientrepositry.patientCheckVitals()
+    return jsonify({"result": response })
 
 @app.route('/dischargePatient',methods=['GET'])
 def dischargePatient():
-    patientrepositry.dischargePatient("1");
+    response  = patientrepositry.dischargePatient("1");
 
-    return "Dischargin patient"
+    return jsonify({"result": response })
 
 
 

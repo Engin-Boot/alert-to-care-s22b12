@@ -4,30 +4,30 @@ class patientrepositry:
 	PatientList=[];
 
 	def addPatient(patient):
-		bedID=BedsRepositry.checkVacantBed();
+		bedID=BedsRepositry.checkVacantBed()
 
 		if bedID==-1:
-			print("No Vacant Bed");
-			return;
+			return("No Vacant Bed");
+			
 
 		else:
-			print(bedID+"is now occupied by"+ patient.name);
+			return(bedID+" "+ "is now occupied by"+ " " + patient.name)
 			#BedsRepositry.fillBed(bedID)
 			patient.bedid=bedID;
-			patientrepositry.PatientList.append(patient);
+			patientrepositry.PatientList.append(patient)
 			return;
 
 	def checkSPO(spo2):
-		spo2value=int(spo2);
+		spo2value=int(spo2)
 		if spo2value>95 :
-			return True;
+			return True
 		elif spo2value<95:
-			return False;
+			return False
 		else:
 			return False
 
 	def checkheartbeat(heartbeat):
-		heartbeatvalue=int(heartbeat);
+		heartbeatvalue=int(heartbeat)
 		if heartbeatvalue>100:
 			return False
 		elif heartbeatvalue<60:
@@ -48,9 +48,9 @@ class patientrepositry:
 
 		for patient in patientrepositry.PatientList:
 			if patientrepositry.checkheartbeat(patient.heartbeat) and patientrepositry.checkBP(patient.bp) and patientrepositry.checkSPO(patient.spo2):
-				print("Patient is OK on bed number"+patient.bedid);
+				return("Patient is OK on bed number"+patient.bedid)
 			else:
-				print("Check patient on bed number"+patient.bedid);
+				return("Check patient on bed number"+patient.bedid)
 
 	def removePatient(i,status,id):
 		List=patientrepositry.PatientList;
@@ -59,9 +59,9 @@ class patientrepositry:
 			List.remove(List[i])
 			patientrepositry.PatientList=List;
 			BedsRepositry.emptyBed(id)
-			print("Patient is discharged");
+			return("Patient is discharged")
 		else:
-			print("Bed is not occupied by any patient");
+			return("Bed is not occupied by any patient")
 
 	def dischargePatient(id):
 		i=0
@@ -72,4 +72,4 @@ class patientrepositry:
 				break;
 			else:
 				i+=1;
-		patientrepositry.removePatient(i,status,id);
+		return(patientrepositry.removePatient(i,status,id));
