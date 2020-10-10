@@ -32,10 +32,6 @@ jobs:
         python ./api/test_api.py 
 
      
-#     - name: Generate coverage report
-#       run: |
-#        pip install coverage
-#        coverage run ./api/test_api.py 
     - name: Generate coverage report
       run: |
         pip install pytest
