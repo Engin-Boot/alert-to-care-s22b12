@@ -27,5 +27,5 @@ class BedsRepositry:
 
     def emptyBed(id):
         for beds in BedsRepositry.BedsList:
-            if beds.id==id and beds.vacant==False:
+            if beds.id==id:
                 beds.vacant=True;
