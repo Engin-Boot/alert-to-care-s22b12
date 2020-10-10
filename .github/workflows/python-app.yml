@@ -31,6 +31,12 @@ jobs:
 #         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
 #         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
 #         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+     
+    - name: Python Pylin GitHub Action
+      uses: fylein/python-pylint-github-action@v1
+      with:
+        args: pylint --rcfile=.pylintrc ./api
+
     - name: Test with unittest
       run: |
         python ./api/test_api.py 
