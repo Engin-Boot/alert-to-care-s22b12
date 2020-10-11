@@ -3,6 +3,7 @@ from patients import Patient
 from patientrepository import patientrepositry
 from bedsrepository import BedsRepositry
 
+# pylint: disable-all
 class Test(unittest.TestCase):
     def test_add_beds_repository(self):
         data = {"numberofbeds" : "10"}

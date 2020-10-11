@@ -18,17 +18,17 @@ def home():
 
 @app.route('/addBeds',methods=['POST'])
 def addBedsRepository():
-    numberofbeds=request.json['numberofbeds'];
+    numberofbeds=request.json['numberofbeds']
     message=BedsRepositry.addBeds(numberofbeds)
-    return jsonify(message);
+    return jsonify(message)
 
 
 @app.route('/patient',methods=['POST'])
 def patiententry():
     name=request.json['name']
     age=request.json['age']
-    patientdetails=Patient(name,age);
-    message=patientrepositry.addPatient(patientdetails);
+    patientdetails=Patient(name,age)
+    message=patientrepositry.addPatient(patientdetails)
     return jsonify(message)
 
 @app.route('/alertonpatientstatus',methods=['GET'])
@@ -39,7 +39,7 @@ def alertonpatientstatus():
 @app.route('/dischargePatient',methods=['POST'])
 def dischargePatient():
     bedid=request.json['bedid']
-    message=patientrepositry.dischargePatient(bedid);
-    return jsonify(message);
+    message=patientrepositry.dischargePatient(bedid)
+    return jsonify(message)
 
 app.run()
