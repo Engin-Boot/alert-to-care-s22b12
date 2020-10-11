@@ -10,8 +10,8 @@ print(x.text)
 url = 'http://127.0.0.1:5000/patient'
 myobj = {"name": "Suresh", "age" : "70"}
 
-x = requests.post(url, json= myobj)
-print(x.text)
+y = requests.post(url, json= myobj)
+print(y.text)
 
 url = 'http://127.0.0.1:5000//alertonpatientstatus'
 x = requests.get(url)

@@ -4,9 +4,9 @@ from random import randint
 
 class patientrepositry:
 	PatientList=[];
-	messageForAddingPatient=" ";
-	message="";
-	messagev="";
+	messageForAddingPatient=" "
+	message=""
+	messagev=""
 
 
 	def addPatient(patient):
@@ -14,7 +14,7 @@ class patientrepositry:
 		bedID=BedsRepositry.checkVacantBed();
 
 		if bedID==-1:
-			messageForAddingPatient=" No Vacant Bed ";
+			messageForAddingPatient=" No Vacant Bed "
 		else:
 			messageForAddingPatient="Bed number "+bedID+" is now occupied by "+ patient.name;
 			#BedsRepositry.fillBed(bedID)

@@ -31,8 +31,8 @@ class Test(unittest.TestCase):
         bedid = data["bedid"]
         response=patientrepositry.dischargePatient(bedid);
         # expected = "Patient Suresh is discharged"
-        expected = ' '
-        self.assertEqual(response,expected)
+        expectedd = ' '
+        self.assertEqual(response,expectedd)
         
 
 if __name__ == '__main__' :

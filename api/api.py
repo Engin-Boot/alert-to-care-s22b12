@@ -12,24 +12,25 @@ app = flask.Flask(__name__)
 
 app.config["DEBUG"] = True
 
+# pylint: disable-all
 @app.route('/', methods=['GET'])
 def home():
     return "<h1>Distant Reading Archive</h1><p>This site is a prototype API for distant reading of science fiction novels.</p>"
 
-# pylint: disable-all
+
 @app.route('/addBeds',methods=['POST'])
 def addBedsRepository():
-    numberofbeds=request.json['numberofbeds'];
+    numberofbeds=request.json['numberofbeds']
     message=BedsRepositry.addBeds(numberofbeds)
-    return jsonify(message);
+    return jsonify(message)
 
 
 @app.route('/patient',methods=['POST'])
 def patiententry():
     name=request.json['name']
     age=request.json['age']
-    patientdetails=Patient(name,age);
-    message=patientrepositry.addPatient(patientdetails);
+    patientdetails=Patient(name,age)
+    message=patientrepositry.addPatient(patientdetails)
     return jsonify(message)
 
 @app.route('/alertonpatientstatus',methods=['GET'])
@@ -40,7 +41,7 @@ def alertonpatientstatus():
 @app.route('/dischargePatient',methods=['POST'])
 def dischargePatient():
     bedid=request.json['bedid']
-    message=patientrepositry.dischargePatient(bedid);
-    return jsonify(message);
+    message=patientrepositry.dischargePatient(bedid)
+    return jsonify(message)
 
 app.run()
