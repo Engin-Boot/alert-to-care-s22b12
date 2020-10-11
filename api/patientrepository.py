@@ -2,37 +2,36 @@ from beds import Beds
 from bedsrepository import BedsRepositry
 from random import randint
 
-# pylint: disable-all
 class patientrepositry:
-	PatientList=[]
-	messageForAddingPatient=" "
-	message=""
-	messagev=""
+	PatientList=[];
+	messageForAddingPatient=" ";
+	message="";
+	messagev="";
 
 
-	def addPatient(self,patient):
+	def addPatient(patient):
 
-		bedID=BedsRepositry.checkVacantBed()
+		bedID=BedsRepositry.checkVacantBed();
 
 		if bedID==-1:
-			messageForAddingPatient=" No Vacant Bed "
+			messageForAddingPatient=" No Vacant Bed ";
 		else:
-			messageForAddingPatient="Bed number "+bedID+" is now occupied by "+ patient.name
+			messageForAddingPatient="Bed number "+bedID+" is now occupied by "+ patient.name;
 			#BedsRepositry.fillBed(bedID)
-			patient.bedid=bedID
-			patientrepositry.PatientList.append(patient)
+			patient.bedid=bedID;
+			patientrepositry.PatientList.append(patient);
 		return messageForAddingPatient
 
-	def checkSPO(self,spo2):
-		spo2value=int(spo2)
+	def checkSPO(spo2):
+		spo2value=int(spo2);
 		if spo2value>95 :
-			return True
+			return True;
 		elif spo2value<95:
 			patientrepositry.messagev=patientrepositry.messagev+" Low SPO2 level "
-			return False
+			return False;
 
-	def checkheartbeat(self,heartbeat):
-		heartbeatvalue=int(heartbeat)
+	def checkheartbeat(heartbeat):
+		heartbeatvalue=int(heartbeat);
 		if heartbeatvalue>100:
 			patientrepositry.messagev=patientrepositry.messagev+" High heart beat "
 			return False
@@ -42,8 +41,8 @@ class patientrepositry:
 		else:
 			return True
 
-	def checkBP(self,bloodpressure):
-		bloodpressurevalue=int(bloodpressure)
+	def checkBP(bloodpressure):
+		bloodpressurevalue=int(bloodpressure);
 		if bloodpressurevalue<80:
 			patientrepositry.messagev=patientrepositry.messagev+" Low blood pressure "
 			return False
@@ -53,21 +52,21 @@ class patientrepositry:
 		else:
 			return True
 
-	def patientstatus(self,patient):
+	def patientstatus(patient):
 
-		patient.heartbeat=str(randint(50,110))
-		patient.bp=str(randint(60,130))
-		patient.spo2=str(randint(80,100))
+		patient.heartbeat=str(randint(50,110));
+		patient.bp=str(randint(60,130));
+		patient.spo2=str(randint(80,100));
 
 		if patientrepositry.checkheartbeat(patient.heartbeat) & patientrepositry.checkBP(patient.bp) & patientrepositry.checkSPO(patient.spo2):
-			patientrepositry.message= patientrepositry.message+" Patient is OK on bed number "+patient.bedid
+			patientrepositry.message= patientrepositry.message+" Patient is OK on bed number "+patient.bedid;
 		else:
-			patientrepositry.message= patientrepositry.message+" Check patient on bed number "+patient.bedid+" for following issues"+patientrepositry.messagev+'\n'
+			patientrepositry.message= patientrepositry.message+" Check patient on bed number "+patient.bedid+" for following issues"+patientrepositry.messagev+'\n';
 
-	def patientCheckVitals(self):
-		patientrepositry.message=""
+	def patientCheckVitals():
+		patientrepositry.message="";
 		for patient in patientrepositry.PatientList:
-			patientrepositry.messagev=""
+			patientrepositry.messagev="";
 			if patient.bedid!="null":
 				patientrepositry.patientstatus(patient)
 			else:
@@ -77,18 +76,18 @@ class patientrepositry:
 
 
 
-	def dischargePatient(self,id):
-		messageDischargePatient=" "
+	def dischargePatient(id):
+		messageDischargePatient=" ";
 		for patient in patientrepositry.PatientList:
 			if patient.bedid==id:
 				patient.bedid="null"
 				patient.spo2="null"
 				patient.bp="null"
 				patient.heartbeat="null"
-				messageDischargePatient="Patient "+patient.name+" is discharged"
+				messageDischargePatient="Patient "+patient.name+" is discharged";
 				BedsRepositry.emptyBed(id)
-				break
+				break;
 			else:
-				 messageDischargePatient="Bed is not occupied by patient or Bed id does not exist"
+				 messageDischargePatient="Bed is not occupied by patient or Bed id does not exist";
 
 		return messageDischargePatient
