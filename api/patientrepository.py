@@ -13,7 +13,7 @@ class patientrepositry:
         if bedID == -1:
             messageForAddingPatient = " No Vacant Bed "
         else:
-            messageForAddingPatient = "Bed number "+bedID+" is now occupied by "+patient.name
+            messageForAddingPatient = "Bed number " + bedID + " is now occupied by " + patient.name
             patient.bedid = bedID
             patientrepositry.PatientList.append(patient)
         return messageForAddingPatient
@@ -23,16 +23,16 @@ class patientrepositry:
         if spo2value > 95:
             return True
         elif spo2value < 95:
-            patientrepositry.messagev = patientrepositry.messagev+" Low SPO2 level"
+            patientrepositry.messagev = patientrepositry.messagev + " Low SPO2 level"
             return False
 
     def checkheartbeat(heartbeat):
         heartbeatvalue = int(heartbeat)
         if heartbeatvalue > 100:
-            patientrepositry.messagev = patientrepositry.messagev+" High heart beat "
+            patientrepositry.messagev = patientrepositry.messagev + " High heart beat "
             return False
         elif heartbeatvalue < 60:
-            patientrepositry.messagev = patientrepositry.messagev+" Low heart beat "
+            patientrepositry.messagev = patientrepositry.messagev + " Low heart beat "
             return False
         else:
             return True
@@ -40,10 +40,10 @@ class patientrepositry:
     def checkBP(bloodpressure):
         bloodpressurevalue = int(bloodpressure)
         if bloodpressurevalue < 80:
-            patientrepositry.messagev = patientrepositry.messagev+" Low blood pressure "
+            patientrepositry.messagev = patientrepositry.messagev + " Low blood pressure "
             return False
         elif bloodpressurevalue > 120:
-            patientrepositry.messagev = patientrepositry.messagev+" High blood pressure "
+            patientrepositry.messagev = patientrepositry.messagev + " High blood pressure "
             return False
         else:
             return True
@@ -54,9 +54,9 @@ class patientrepositry:
         patient.spo2 = str(randint(80, 100))
 
         if patientrepositry.checkheartbeat(patient.heartbeat) & patientrepositry.checkBP(patient.bp) & patientrepositry.checkSPO(patient.spo2):
-            patientrepositry.message = patientrepositry.message+" Patient is OK on bed number "+patient.bedid
+            patientrepositry.message = patientrepositry.message + " Patient is OK on bed number " + patient.bedid
         else:
-            patientrepositry.message = patientrepositry.message+" Check patient on bed number "+patient.bedid+" for following issues"+patientrepositry.messagev+'\n'
+            patientrepositry.message = patientrepositry.message + " Check patient on bed number " + patient.bedid + " for following issues" + patientrepositry.messagev + '\n'
 
     def patientCheckVitals(self):
         patientrepositry.message = ""
@@ -65,7 +65,7 @@ class patientrepositry:
             if patient.bedid != "null":
                 patientrepositry.patientstatus(patient)
             else:
-                patientrepositry.message = patientrepositry.message+ "Patient is not present in ICU"
+                patientrepositry.message = patientrepositry.message + "Patient is not present in ICU"
         return patientrepositry.message
 
     def dischargePatient(self, id):
@@ -76,7 +76,7 @@ class patientrepositry:
                 patient.spo2 = "null"
                 patient.bp = "null"
                 patient.heartbeat = "null"
-                messageDischargePatient = "Patient "+patient.name+" is discharged"
+                messageDischargePatient = "Patient " + patient.name + " is discharged"
                 BedsRepositry.emptyBed(id)
                 break
             else:
