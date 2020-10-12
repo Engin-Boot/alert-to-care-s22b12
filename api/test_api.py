@@ -13,7 +13,7 @@ class Test(unittest.TestCase):
 
     def test_patient_entry(self):
         data = {"name": "Suresh", "age": "70"}
-        patientdetails = Patient(data['name'],data['age']);
+        patientdetails = Patient(data['name'], data['age'])
         response = patientrepositry.addPatient(patientdetails)
         expected = "Bed number 1 is now occupied by Suresh"
         self.assertEqual(response, expected)
@@ -30,7 +30,6 @@ class Test(unittest.TestCase):
         # expected = "Patient Suresh is discharged"
         expectedd = ' '
         self.assertEqual(response, expectedd)
-    
-    
-if __name__ == '__main__' :
+ 
+if __name__ == '__main__':
     unittest.main()
