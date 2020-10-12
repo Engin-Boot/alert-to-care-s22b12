@@ -1,4 +1,4 @@
-import requests
+from flask import requests
 from flask import jsonify
 
 url = 'http://127.0.0.1:5000/addBeds'
