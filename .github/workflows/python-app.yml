@@ -30,6 +30,7 @@ jobs:
     - name: Test with unittest
       run: |
         python ./api/test_api.py 
+        pip install -U Flask
         python ./api/integration_tests.py
 
      
