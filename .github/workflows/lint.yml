@@ -17,5 +17,5 @@ jobs:
         uses: py-actions/flake8@v1
         with:
           ignore: "F401,E302"  
-          max-line-length: "100"
+          max-line-length: "200"
           path: "api"
