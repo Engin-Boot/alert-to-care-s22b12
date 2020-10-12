@@ -58,7 +58,7 @@ class patientrepositry:
         else:
             patientrepositry.message = patientrepositry.message + " Check patient on bed number " + patient.bedid + " for following issues" + patientrepositry.messagev + '\n'
 
-    def patientCheckVitals(self):
+    def patientCheckVitals():
         patientrepositry.message = ""
         for patient in patientrepositry.PatientList:
             patientrepositry.messagev = ""
@@ -68,7 +68,7 @@ class patientrepositry:
                 patientrepositry.message = patientrepositry.message + "Patient is not present in ICU"
         return patientrepositry.message
 
-    def dischargePatient(self, id):
+    def dischargePatient(id):
         messageDischargePatient = " "
         for patient in patientrepositry.PatientList:
             if patient.bedid == id:
