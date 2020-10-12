@@ -3,6 +3,7 @@ from patients import Patient
 from patientrepository import patientrepositry
 from bedsrepository import BedsRepositry
 
+
 class Test(unittest.TestCase):
     def test_add_beds_repository(self):
         data = {"numberofbeds": "10"}
@@ -18,7 +19,7 @@ class Test(unittest.TestCase):
         expected = "Bed number 1 is now occupied by Suresh"
         self.assertEqual(response, expected)
 
-    def test_check_vitals(self): 
+    def test_check_vitals(self):
         response = patientrepositry.patientCheckVitals()
         expected = ''
         self.assertEqual(response, expected)
@@ -30,6 +31,7 @@ class Test(unittest.TestCase):
         # expected = "Patient Suresh is discharged"
         expectedd = ' '
         self.assertEqual(response, expectedd)
- 
+
+
 if __name__ == '__main__':
     unittest.main()
