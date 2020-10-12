@@ -24,7 +24,7 @@ def addBedsRepository():
     return jsonify(message)
 
 
-@app.route('/patient',methods=['POST'])
+@app.route('/patient', methods=['POST'])
 def patiententry():
     name = request.json['name']
     age = request.json['age']
@@ -32,10 +32,12 @@ def patiententry():
     message = patientrepositry.addPatient(patientdetails)
     return jsonify(message)
 
+
 @app.route('/alertonpatientstatus', methods=['GET'])
 def alertonpatientstatus():
     message = patientrepositry.patientCheckVitals()
     return jsonify(message)
+
 
 @app.route('/dischargePatient', methods=['POST'])
 def dischargePatient():
