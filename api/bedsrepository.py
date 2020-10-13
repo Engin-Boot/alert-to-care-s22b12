@@ -25,7 +25,7 @@ class BedsRepositry:
             message = numberofbeds + " " + "beds are added"
             layout = "left"
             for i in range(0, int(numberofbeds)):
-                bed = Beds(True, str(i+1), str(floor), layout)
+                bed = Beds(True, str(i + 1), str(floor), layout)
                 layout = BedsRepositry.changeLayout(layout)
                 initializer += 1
                 floor = BedsRepositry.checklimit(initializer, floor)
