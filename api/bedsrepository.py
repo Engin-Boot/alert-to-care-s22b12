@@ -14,7 +14,7 @@ class BedsRepositry:
 
     def checklimit(initializer, floor):
         if initializer % 6 == 0:
-            return floor+1
+            return floor + 1
         else:
             return floor
 
