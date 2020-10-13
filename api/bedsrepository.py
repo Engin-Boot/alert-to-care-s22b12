@@ -6,11 +6,29 @@ class BedsRepositry:
 
     message = ""
 
+    def changeLayout(layout):
+        if layout == "left":
+            return "right"
+        else:
+            return "left"
+
+    def checklimit(initializer, floor):
+        if initializer % 6 == 0:
+            return floor+1
+        else:
+            return floor
+
     def addBeds(numberofbeds):
-        if int(numberofbeds) < 100:
+        floor = 0
+        initializer = 0
+        if int(numberofbeds) <= 30:
             message = numberofbeds + " " + "beds are added"
-            for i in range(1, int(numberofbeds)):
-                bed = Beds(True, str(i))
+            layout = "left"
+            for i in range(0, int(numberofbeds)):
+                bed = Beds(True, str(i+1), str(floor), layout)
+                layout = BedsRepositry.changeLayout(layout)
+                initializer += 1
+                floor = BedsRepositry.checklimit(initializer, floor)
                 BedsRepositry.BedsList.append(bed)
         else:
             message = "Total Capacity is less as compared to need of beds"
