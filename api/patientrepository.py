@@ -2,6 +2,7 @@ from beds import Beds
 from bedsrepository import BedsRepositry
 from random import randint
 
+
 class patientrepositry:
     PatientList = []
     messageForAddingPatient = " "
@@ -68,6 +69,17 @@ class patientrepositry:
                 patientrepositry.message = patientrepositry.message + "Patient is not present in ICU"
         return patientrepositry.message
 
+    def resetPatientVitals(id):
+        messageReset = ""
+        for patient in patientrepositry.PatientList:
+            if patient.bedid == id:
+                patient.spo2 = "null"
+                patient.bp = "null"
+                patient.heartbeat = "null"
+                messageReset = "Patient's Vitals Reset"
+                break
+        return messageReset
+ 
     def dischargePatient(id):
         messageDischargePatient = " "
         for patient in patientrepositry.PatientList:

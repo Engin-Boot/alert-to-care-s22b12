@@ -1,4 +1,5 @@
 import flask
+from flask_cors import CORS, cross_origin
 from patients import Patient
 from patientrepository import patientrepositry
 from bedsrepository import BedsRepositry
@@ -8,7 +9,8 @@ from flask import jsonify
 from flask import request
 
 app = flask.Flask(__name__)
-
+cors = CORS(app)
+app.config['CORS_HEADERS'] = 'Content-Type'
 app.config["DEBUG"] = True
 
 
@@ -36,6 +38,13 @@ def patiententry():
 @app.route('/alertonpatientstatus', methods=['GET'])
 def alertonpatientstatus():
     message = patientrepositry.patientCheckVitals()
+    return jsonify(message)
+
+
+@app.route('/resetPatientStatus', methods=['POST'])
+def ResetPatientStatus():
+    bedid = request.json['bedid']
+    message = patientrepositry.resetPatientVitals(bedid)
     return jsonify(message)
 
 
