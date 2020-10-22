@@ -79,7 +79,7 @@ class patientrepositry:
                 messageReset = "Patient's Vitals Reset"
                 break
         return messageReset
- 
+
     def dischargePatient(id):
         messageDischargePatient = " "
         for patient in patientrepositry.PatientList:
