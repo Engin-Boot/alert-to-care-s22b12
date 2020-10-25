@@ -70,7 +70,7 @@ class patientrepositry:
         return patientrepositry.message
 
     def resetPatientVitals(id):
-        messageReset = ""
+        messageReset = "BedId not found"
         for patient in patientrepositry.PatientList:
             if patient.bedid == id:
                 patient.spo2 = "null"
