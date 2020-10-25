@@ -1,0 +1,7 @@
+<h1>Patient Information</h1>
+
+<form #userPost = "ngForm"(ngSubmit)="onSubmit(userPost.value)">
+    <input type="text" name ="name" ngModel placeholder="Name"><br><br>
+    <input type="text" name ="age" ngModel placeholder="Age"><br><br>
+    <button type= "submit">submit Data</button>
+</form>
